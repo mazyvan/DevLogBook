@@ -1,4 +1,4 @@
-# Engineering Log Book
+# DevLogBook
 
 A personal engineering log system powered by Claude Code skills. Write weekly logs interactively and roll them up into quarterly summaries for performance reviews.
 
