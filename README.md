@@ -44,13 +44,13 @@ quarters/YYYY/YYYY-QX.md     — one file per quarter
 
 No rigid template. Each week is different. Logs are organized by narrative threads — not categories like "Accomplishments / Blockers / Next." Each item tells a mini-story with linked Jira tickets, PRs, and Confluence pages inline.
 
-See `.claude/skills/weekly-log/references/examples.md` for examples.
+See [weekly log examples](.claude/skills/weekly-log/references/examples.md).
 
 ## Quarterly rollup format
 
 Synthesizes weekly logs into multi-week stories. Includes key threads, numbers (PRs merged, docs written, fixes shipped), growth notes, and what's ahead.
 
-See `.claude/skills/quarterly-rollup/references/examples.md` for examples.
+See [quarterly rollup examples](.claude/skills/quarterly-rollup/references/examples.md).
 
 ## Requirements
 
