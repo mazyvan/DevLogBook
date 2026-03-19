@@ -1,6 +1,6 @@
 ---
 name: weekly-log
-description: Interactive weekly engineering log generator for the IvanLogBook project. Use whenever the user wants to create, update, or review their weekly progress log. Triggers on "weekly log", "log my week", "daybook", "what did I do this week", "write my log", "log book", "week summary", or any request about tracking weekly engineering progress — even casual ones like "let's do the log" or "time to log".
+description: Interactive weekly engineering log generator. Use whenever the user wants to create, update, or review their weekly progress log. Triggers on "weekly log", "log my week", "daybook", "what did I do this week", "write my log", "log book", "week summary", or any request about tracking weekly engineering progress — even casual ones like "let's do the log" or "time to log".
 ---
 
 # Weekly Engineering Log
@@ -87,7 +87,7 @@ Once the conversation is done:
 
 ## Style
 
-- **Always link Jira tickets**: `[KEY-123](https://producepay.atlassian.net/browse/KEY-123)`. Every ticket reference gets a clickable link.
+- **Always link Jira tickets**: `[KEY-123](https://$LOGBOOK_ATLASSIAN_CLOUD_ID/browse/KEY-123)`. Every ticket reference gets a clickable link.
 - Organize by what happened, not by category. Each item tells a mini-story.
 - Connect the dots — a ticket that led to a doc that led to a PR is one item, not three.
 - Lead with what matters. Trivial ticket updates don't deserve the same space as a 2-day investigation.
