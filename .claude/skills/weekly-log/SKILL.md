@@ -23,25 +23,27 @@ Think weeknotes, not Jira export.
 
 Pull from all sources in parallel while asking what happened. The tools provide supporting evidence — the user's perspective is the source of truth.
 
-**Jira** — Atlassian MCP tools (cloudId: `producepay.atlassian.net`)
-- `assignee = "712020:f969c7d9-4a70-41e1-b6aa-e1e91b7cdaba" AND updated >= "YYYY-MM-DD" AND updated <= "YYYY-MM-DD" ORDER BY updated DESC`
-- `assignee = "712020:f969c7d9-4a70-41e1-b6aa-e1e91b7cdaba" AND status changed DURING ("YYYY-MM-DD", "YYYY-MM-DD") ORDER BY updated DESC`
+Uses env vars for user-specific identifiers. These must be set in Claude Code settings (see README).
+
+**Jira** — Atlassian MCP tools (cloudId: `$LOGBOOK_ATLASSIAN_CLOUD_ID`)
+- `assignee = "$LOGBOOK_JIRA_ACCOUNT_ID" AND updated >= "YYYY-MM-DD" AND updated <= "YYYY-MM-DD" ORDER BY updated DESC`
+- `assignee = "$LOGBOOK_JIRA_ACCOUNT_ID" AND status changed DURING ("YYYY-MM-DD", "YYYY-MM-DD") ORDER BY updated DESC`
 - Deduplicate by ticket key across both queries
 - **Ticket lifecycle**: Tickets go through steps — the one that matters for the log is **Merged** (code reviewed and approved). After that comes QA and eventually Closed/Done when released to prod. Don't log a ticket just because it moved to Done/Closed that week if the actual work (the merge) happened in a previous week. Unless the user specifically says a prod release was noteworthy, treat "Merged" as the milestone worth logging.
 
 **GitHub** — CLI
 ```bash
-gh search prs --author=mazyvan --merged-at=YYYY-MM-DD..YYYY-MM-DD --owner=producepay --json title,repository,url,closedAt
+gh search prs --author=$LOGBOOK_GITHUB_USERNAME --merged-at=YYYY-MM-DD..YYYY-MM-DD --owner=$LOGBOOK_GITHUB_ORG --json title,repository,url,closedAt
 ```
 
 **Confluence** — Atlassian MCP tools
-- `creator = "712020:f969c7d9-4a70-41e1-b6aa-e1e91b7cdaba" AND created >= "YYYY-MM-DD" AND created <= "YYYY-MM-DD" ORDER BY created DESC`
+- `creator = "$LOGBOOK_JIRA_ACCOUNT_ID" AND created >= "YYYY-MM-DD" AND created <= "YYYY-MM-DD" ORDER BY created DESC`
 
 **Google Calendar** — use `gcal_list_events`
-- calendarId: `primary` (ivan.sanchez@producepay.com)
+- calendarId: `$LOGBOOK_CALENDAR_ID`
 - timeMin: `YYYY-MM-DDT00:00:00` (Monday)
 - timeMax: `YYYY-MM-DDT23:59:59` (Friday)
-- timeZone: `America/Mexico_City`
+- timeZone: `$LOGBOOK_TIMEZONE`
 - Filter results: Keep PTO, OOO, days off, one-off notable meetings. Drop recurring events (check `recurringEventId`) like standups, 1:1s, daily syncs, sprint ceremonies.
 
 ## 3. Have a Conversation

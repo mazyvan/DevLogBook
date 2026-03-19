@@ -1,0 +1,10 @@
+{
+  "env": {
+    "LOGBOOK_JIRA_ACCOUNT_ID": "",
+    "LOGBOOK_ATLASSIAN_CLOUD_ID": "",
+    "LOGBOOK_GITHUB_USERNAME": "",
+    "LOGBOOK_GITHUB_ORG": "",
+    "LOGBOOK_CALENDAR_ID": "primary",
+    "LOGBOOK_TIMEZONE": ""
+  }
+}

@@ -13,18 +13,31 @@ Two Claude Code skills do the heavy lifting:
 
 1. Fork this repo privately (your reports shouldn't be public)
 2. In your private fork, remove the report exclusions from `.gitignore` so your logs get committed
-3. Update `.claude/skills/weekly-log/SKILL.md` with your own identifiers:
-   - Jira account ID (for JQL queries)
-   - GitHub username and org (for PR searches)
-   - Google Calendar email and timezone
+3. Configure your identifiers by running this in Claude Code:
+
+```
+set LOGBOOK_JIRA_ACCOUNT_ID=your-jira-account-id
+set LOGBOOK_ATLASSIAN_CLOUD_ID=your-site.atlassian.net
+set LOGBOOK_GITHUB_USERNAME=your-github-username
+set LOGBOOK_GITHUB_ORG=your-github-org
+set LOGBOOK_CALENDAR_ID=primary
+set LOGBOOK_TIMEZONE=America/Your_Timezone
+```
+
+This writes env vars to `.claude/settings.local.json` (gitignored — your values stay private). The skills read these at runtime.
+
+To find your Jira account ID, run `/weekly-log` and check the Atlassian MCP tools, or ask Claude: "what's my Jira account ID?"
+
 4. Update `CLAUDE.md` with your project details
 
 ## Structure
 
 ```
-weeks/YYYY/YYYY-WXX.md    — one file per ISO week
-quarters/YYYY/YYYY-QX.md  — one file per quarter
-.claude/skills/            — Claude Code skills
+weeks/YYYY/YYYY-WXX.md       — one file per ISO week
+quarters/YYYY/YYYY-QX.md     — one file per quarter
+.claude/skills/               — Claude Code skills
+.claude/settings.json         — env var template (committed)
+.claude/settings.local.json   — your actual values (gitignored)
 ```
 
 ## Weekly log format

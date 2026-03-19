@@ -2,5 +2,8 @@
 weeks/**/*.md
 quarters/**/*.md
 
+# Local settings (contains personal identifiers)
+.claude/settings.local.json
+
 # Keep directory structure
 !**/.gitkeep
