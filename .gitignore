@@ -1,0 +1,6 @@
+# Weekly and quarterly reports (personal, not committed)
+weeks/**/*.md
+quarters/**/*.md
+
+# Keep directory structure
+!**/.gitkeep
