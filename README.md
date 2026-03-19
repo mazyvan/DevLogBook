@@ -13,10 +13,10 @@ Two Claude Code skills do the heavy lifting:
 
 1. Fork this repo privately (your reports shouldn't be public)
 2. In your private fork, remove the report exclusions from `.gitignore` so your logs get committed
-3. Update `.claude/skills/weekly-log/SKILL.md` with your own:
-   - Jira account ID
-   - GitHub username and org
-   - Google Calendar ID and timezone
+3. Update `.claude/skills/weekly-log/SKILL.md` with your own identifiers:
+   - Jira account ID (for JQL queries)
+   - GitHub username and org (for PR searches)
+   - Google Calendar email and timezone
 4. Update `CLAUDE.md` with your project details
 
 ## Structure
